@@ -11,6 +11,8 @@ public class TestSpring {
         //получения бина с внедрением зависимости через AppCont
         MusicPlayer musicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
         musicPlayer.playMusic();
+        System.out.println(musicPlayer.getName());
+        System.out.println(musicPlayer.getVolume());
         context.close();
     }
 }
