@@ -8,10 +8,8 @@ public class TestSpring {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
                 "applicationContext.xml"
         );
-        //достанем бин из application context
-        Music music = context.getBean("musicBean", Music.class);
-        //внедряем зависимость из вне вручную
-        MusicPlayer musicPlayer = new MusicPlayer(music);
+        //получения бина с внедрением зависимости через AppCont
+        MusicPlayer musicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
         musicPlayer.playMusic();
         context.close();
     }

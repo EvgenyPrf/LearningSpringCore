@@ -11,4 +11,9 @@
           class="ru.parfenyuk.learningspring.PopMusic">
     </bean>
 
+    <bean id="musicPlayer"
+          class="ru.parfenyuk.learningspring.MusicPlayer">
+        <constructor-arg ref="musicBean"/>
+    </bean>
+
 </beans>
