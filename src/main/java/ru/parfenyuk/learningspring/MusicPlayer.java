@@ -8,7 +8,7 @@ public class MusicPlayer {
     private String name;
     private int volume;
 
-    //IoC
+    //IoC зависимость внедряется извне
     public MusicPlayer() {
     }
 

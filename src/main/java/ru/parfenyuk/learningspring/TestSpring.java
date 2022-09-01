@@ -8,11 +8,12 @@ public class TestSpring {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
                 "applicationContext.xml"
         );
-        //получения бина с внедрением зависимости через AppCont
+        //получение бина с внедрением зависимости через AppCont
         MusicPlayer musicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
-        musicPlayer.playMusic();
-        System.out.println(musicPlayer.getName());
+        MusicPlayer musicPlayer1 = context.getBean("musicPlayer", MusicPlayer.class);
+        musicPlayer1.setVolume(30);
         System.out.println(musicPlayer.getVolume());
+        System.out.println(musicPlayer1.getVolume());
         context.close();
     }
 }
