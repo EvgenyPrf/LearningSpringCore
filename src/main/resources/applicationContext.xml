@@ -13,7 +13,10 @@
           class="ru.parfenyuk.learningspring.PopMusic">
     </bean>
     <bean id="classicalMusicBean"
-          class="ru.parfenyuk.learningspring.ClassicalMusic">
+          class="ru.parfenyuk.learningspring.ClassicalMusic"
+          init-method="doMyInit"
+          destroy-method="doMyDestroy"
+          factory-method="getClassicalMusic">
     </bean>
     <bean id="rockMusicBean"
           class="ru.parfenyuk.learningspring.RockMusic">
