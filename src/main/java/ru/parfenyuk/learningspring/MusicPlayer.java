@@ -1,8 +1,11 @@
 package ru.parfenyuk.learningspring;
 
+import org.springframework.stereotype.Component;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class MusicPlayer {
     private List<Music> musicList = new ArrayList<>();
     private String name;
@@ -37,5 +40,9 @@ public class MusicPlayer {
 
     public void setVolume(int volume) {
         this.volume = volume;
+    }
+
+    public void doMyInitMethod() {
+        System.out.println("Start init method from MusicPlayer");
     }
 }
