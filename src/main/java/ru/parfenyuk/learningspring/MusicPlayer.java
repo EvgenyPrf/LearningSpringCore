@@ -1,48 +1,30 @@
 package ru.parfenyuk.learningspring;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.List;
 
+/**
+* Аннотация @Component указывает на то, что на основе данного класса необходимо создать бин.
+* */
 @Component
 public class MusicPlayer {
-    private List<Music> musicList = new ArrayList<>();
-    private String name;
-    private int volume;
+    private ClassicalMusic classicalMusic;
+    private RockMusic rockMusic;
 
-    //IoC зависимость внедряется извне
-    public MusicPlayer() {
+    /** Аннотация @Autowired указывает на то, что в конструктор нужно внедрить зависимость на основе бина.
+     * Аннотация Autowired может указываться над приватным полем, даже если нет сеттера.
+     * Она в любом случае внедрит зависимость через механизм рефлексии.
+     **/
+
+    @Autowired
+    public MusicPlayer(ClassicalMusic classicalMusic, RockMusic rockMusic) {
+        this.classicalMusic = classicalMusic;
+        this.rockMusic = rockMusic;
     }
 
-    public void setMusicList(List<Music> musicList) {
-        this.musicList = musicList;
-    }
 
-    public void playMusic(){
-        for (Music m:
-             musicList) {
-            System.out.println("Playing: " + m.getSong());
-        }
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getVolume() {
-        return volume;
-    }
-
-    public void setVolume(int volume) {
-        this.volume = volume;
-    }
-
-    public void doMyInitMethod() {
-        System.out.println("Start init method from MusicPlayer");
+    public String playMusic(){
+        return "Playing: " + classicalMusic.getSong() + "\n" + "Playing: " + rockMusic.getSong();
     }
 }
