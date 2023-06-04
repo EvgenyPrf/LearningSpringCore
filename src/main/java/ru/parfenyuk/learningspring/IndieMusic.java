@@ -1,9 +1,8 @@
 package ru.parfenyuk.learningspring;
 
-public class RockMusic implements Music {
-
+public class IndieMusic implements Music{
     @Override
     public String getSong() {
-        return "Rock song";
+        return "Indie song";
     }
 }
