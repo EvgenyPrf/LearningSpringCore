@@ -2,17 +2,20 @@ package ru.parfenyuk.learningspring;
 
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Component
 public class ClassicalMusic implements Music{
-    private ClassicalMusic() {
-    }
-
-    public static ClassicalMusic getClassicalMusic() {
-        return new ClassicalMusic();
+    List<String> classicalSongs = new ArrayList<>();
+    {
+        classicalSongs.add("Hungarian Rhapsody");
+        classicalSongs.add("Classical song two");
+        classicalSongs.add("Classical song three");
     }
 
     @Override
-    public String getSong() {
-        return "Hungarian Rhapsody";
+    public  List<String> getSong() {
+        return classicalSongs;
     }
 }
