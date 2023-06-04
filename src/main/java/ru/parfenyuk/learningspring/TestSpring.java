@@ -9,8 +9,6 @@ public class TestSpring {
                 "applicationContext.xml"
         );
 
-        Computer computer = context.getBean("computer", Computer.class);
-        System.out.println(computer);
         context.close();
     }
 }
